@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<table border="1">
+<thead>
+	<tr>
+		<td>Operacion</td>
+		<td>Numero 1</td>
+		<td>Numero 2</td>
+		<td>Resultado</td>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td th:text="${ope}"> </td>
+		<td th:text="${num1}"> </td>
+		<td th:text="${num2}"> </td>
+		<td th:text="${rpta}"> </td>
+	</tr>
+</tbody>
+</table>
+<a href="/" class="list-group-item list-group-item-action">INICIO</a>
+</body>
+</html>
