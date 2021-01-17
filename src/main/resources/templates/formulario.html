@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulario de envio</title>
+    <meta charset="UTF-8">
+   <link th:rel="stylesheet" th:href="@{assets/bootstrap-select-1.13.9/dist/css/bootstrap-select.css}"/>
+    <link th:rel="stylesheet" th:href="@{webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+
+
+    
+</head>
+<body style="margin: 0 80px 0 80px;">
+    <center>
+        <h1>Formulario de Registro</h1>
+        <form th:action="@{/formularioRegistro}" th:object="${form}"  method="POST">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="formGroupExampleInput">Nombre:</label>
+                    <input type="text" th:field="*{nombre}" cssClass="form-control" id="formGroupExampleInput"
+                                placeholder="Ingrese sus nombres"/>
+             
+                     <p th:errors="*{nombre}" class="text-danger"  >
+                </div>
+                
+                <div class="form-group col-md-4">
+                     <label for="formGroupExampleInput">Apellido:</label>
+                     <input type="text" th:field="*{apellido}" cssClass="form-control" id="formGroupExampleInput" 
+                                 placeholder="Ingrese sus apellidos" />
+                     <p th:errors="*{apellido}" class="text-danger"  >
+                                  
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="exampleFormControlSelect2">Sexo:</label>
+                    <select th:field="*{sexo}" cssClass="form-control" id="exampleFormControlSelect2">
+                      <option th:each="elemento: ${T(com.miempresa.DTO.OpcionesSexo).values()}"
+                      	th:value="${elemento}" th:text="${elemento}" />
+                    </select> 
+                    
+                    
+            	</div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="formGroupExampleInput">Edad:</label>
+                    <input type=”number” th:field="*{edad}" cssClass="form-control" id="formGroupExampleInput"
+                                placeholder="Ingrese su edad"/>
+                                <p th:errors="*{edad}" class="text-danger"  >
+            	</div>
+                <div class="form-group col-md-4">
+                    <label for="formGroupExampleInput">Correo:</label>
+                    <input type=”text” th:field="*{correo}" cssClass="form-control" id="formGroupExampleInput"
+                                placeholder="Ingrese su correo"/>
+                                <p th:errors="*{correo}" class="text-danger"  >
+                </div>
+            	<div class="form-group col-md-4">
+                    <label for="formGroupExampleInput">Clave</label>
+                    <input type="password" th:field="*{clave}" cssClass="form-control" id="formGroupExampleInput"
+                                   placeholder="Genere una clave"/>
+                                   <p th:errors="*{clave}" class="text-danger"  >
+                </div>
+            </div>
+                <br>
+            <div class="form-group">
+                <input type="submit" value="Enviar" class="btn btn-primary" />
+                <a href="/" class="btn btn-primary" >Volver a Index</a>
+            </div>
+
+        </form>
+            </center>
+    </body>
+</html>
